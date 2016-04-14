@@ -1,0 +1,17 @@
+{
+  "name": "payleven/php-mobileweb-sdk",
+  "description": "The official PHP SDK for the Payleven Mobile Web APIs",
+  "authors": [
+    {
+      "name": "Zac Brown",
+      "email": "zac.brown@payleven.de"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.0"
+  },
+  "autoload": {
+    "psr-4": { "Payleven\\": "src" }
+  }
+}

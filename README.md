@@ -2,13 +2,9 @@
 
 [francesco's description]
 
-### Prerequisites
-
-In order to receive an API key, please contact us by sending an email to integration@payleven.com
-
 ### Installation
 
-This SDK is easily installable via `composer`. If your project does not use composer, download the SDK from this repo, and include the `autoloader.php` file in your application.
+This SDK is easily installable via `composer`. If your project does not use composer, download the source from this repo, and include the `autoloader.php` file in your application.
 
 #### Usage
 
@@ -16,7 +12,7 @@ This SDK is easily installable via `composer`. If your project does not use comp
 
 Use your application's API key, bundleID (domain), and return request configuration to instantiate the Payleven object class.
 
-```
+```php
 
     $app = new Payleven\Payleven([
         'api_key' => '{your api key}',
@@ -33,7 +29,7 @@ Use your application's API key, bundleID (domain), and return request configurat
 
 Start a payment in the Payleven App. This is assuming you've initialized the Payleven object to the `$app` variable:
 
-```
+```php
     $app->startPayment('{payment price in cents}', '{order ID}', '{order description}');
 
     $app->redirect();
@@ -42,7 +38,7 @@ Start a payment in the Payleven App. This is assuming you've initialized the Pay
 
 The startPayment method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
 
-```
+```php
     $url = $app->startPayment('...');
 ```
 
@@ -53,7 +49,7 @@ Otherwise, you can use the built in `redirect` method to let us handle it.
 
 Start a refund in the Payleven App. This is assuming you've initialized the Payleven object to the `$app` variable:
 
-```
+```php
     $app->startRefund('{order ID}');
 
     $app->redirect();
@@ -62,7 +58,7 @@ Start a refund in the Payleven App. This is assuming you've initialized the Payl
 
 The startRefund method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
 
-```
+```php
     $url = $app->startRefund('...');
 ```
 
@@ -72,7 +68,7 @@ Otherwise, you can use the built in `redirect` method to let us handle it.
 
 Start the Transaction Details for a specific order in the Payleven App. This is assuming you've initialized the Payleven object to the `$app` variable:
 
-```
+```php
     $app->startTransactionDetails('{order ID}');
 
     $app->redirect();
@@ -81,7 +77,7 @@ Start the Transaction Details for a specific order in the Payleven App. This is 
 
 The startPayment method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
 
-```
+```php
     $url = $app->startTransactionDetails('...');
 ```
 
@@ -91,7 +87,7 @@ Otherwise, you can use the built in `redirect` method to let us handle it.
 
 Start the payment history interface in the Payleven App. This is assuming you've initialized the Payleven object to the `$app` variable:
 
-```
+```php
     $app->startPaymentHistory();
 
     $app->redirect();
@@ -100,7 +96,7 @@ Start the payment history interface in the Payleven App. This is assuming you've
 
 The startPayment method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
 
-```
+```php
     $url = $app->startPaymentHistory();
 ```
 
@@ -110,7 +106,7 @@ Otherwise, you can use the built in `redirect` method to let us handle it.
 
 HMAC calculation is used to verify that the response actually came from the intended sender. In order to ensure the data you are receiving to your `retrun` endpoint, you should always validate the response. This also assumes you've initialized the Payleven object to the `$app` variable.
 
-```
+```php
     $valid = $app->validateResponse();
 
 
@@ -121,7 +117,7 @@ This method returns a `boolean` value fo `true` or `false`, depedning upon the v
  ##### Accessing the Response Data
 
  After the mobile API returns it's response to your return endpoint, you can simply access the information via the `$_REQUEST` object. Here is a list of all respone fields provided by the Payleven Mobile API:
- ```
+ ```php
     $responseBody = array(
         'result' => $_REQUEST['result'],
         'description' => $_REQUEST['description'],

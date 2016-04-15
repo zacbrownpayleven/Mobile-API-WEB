@@ -47,6 +47,13 @@ class PaylevenWebApplication {
     private $displayName;
 
     /**
+     * The currency for the current application
+     *
+     * @var
+     */
+    private $paymentCurrency;
+
+    /**
      * PaylevenWebAppication constructor.
      * @param $apiKey
      * @param $returnUrlScheme
@@ -54,13 +61,14 @@ class PaylevenWebApplication {
      * @param $returnPage
      * @param $displayName
      */
-    public function __construct($apiKey, $returnUrlScheme, $returnDomain, $returnPage, $displayName) {
+    public function __construct($apiKey, $returnUrlScheme, $returnDomain, $returnPage, $displayName, $paymentCurrency) {
 
         $this->apiKey = $apiKey;
         $this->returnUrlScheme = $returnUrlScheme;
         $this->returnDomain = $returnDomain;
         $this->returnPage = $returnPage;
         $this->displayName = $displayName;
+        $this->paymentCurrency = $paymentCurrency;
     }
 
     /**
@@ -106,5 +114,14 @@ class PaylevenWebApplication {
      */
     public function getDisplayName() {
         return $this->displayName;
+    }
+
+    /**
+     * Get the payment currency
+     *
+     * @return mixed
+     */
+    public function getPaymentCurrency() {
+        return $this->paymentCurrency;
     }
 }

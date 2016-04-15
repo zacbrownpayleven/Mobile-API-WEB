@@ -2,6 +2,8 @@
 /**
  * The Payleven Mobile API SDK for PHP v2
  * @author Zac Brown - zac.brown@payleven.de
+ *
+ * @docs https://github.com/payleven/Mobile-API-WEB
  */
 
 namespace Payleven;
@@ -12,11 +14,6 @@ use Payleven\Exception\PaylevenMissingConfigException;
 use Payleven\Security\PaylevenHmacCalculator;
 
 class Payleven {
-
-    /**
-     * The current version of the mobile API
-     */
-    const MOILE_API_VERSION = '1.2';
 
     /**
      * The token to be used for calculation when a login has been cancelled
@@ -71,13 +68,18 @@ class Payleven {
             throw new PaylevenMissingConfigException('The display name is required for all library interaction');
         }
 
+        if(empty($config['payment_currency'])) {
+            throw new PaylevenMissingConfigException('The payment currency is required for all library interaction');
+        }
+
         $this->webApplication = new PaylevenWebApplication(
             $config['api_key'],
             $config['bundle_id'],
             $config['return_scheme'],
             $config['return_domain'],
             $config['return_page'],
-            $config['display_name']
+            $config['display_name'],
+            $config['payment_currency']
         );
 
         $this->requestBuilder = new PaylevenRequestBuilder();
@@ -93,7 +95,7 @@ class Payleven {
      * @return string
      * @throws PaylevenMissingConfigException
      */
-    public function startPayment($paymentPrice, $orderId, $orderDescription, $paymentCurrency) {
+    public function startPayment($paymentPrice, $orderId, $orderDescription) {
 
         if(empty($paymentPrice) || !is_numeric($paymentPrice)) {
             throw new PaylevenMissingConfigException('The amount to charge is required for this method');
@@ -107,20 +109,16 @@ class Payleven {
             throw new PaylevenMissingConfigException('The order description is required for this method');
         }
 
-        if(empty($paymentCurrency)) {
-            throw new PaylevenMissingConfigException('The payment currency is required for this method.');
-        }
-
         $this->requestBuilder->initiateRequest('payment', [
             'price' => $paymentPrice,
-            'currency' => $paymentCurrency,
             'description' => $orderDescription,
             'orderId' => $orderId,
             'domain' => $this->webApplication->getReturnDomain(),
             'api_key' => $this->webApplication->getApiKey(),
             'scheme' => $this->webApplication->getReturnUrlScheme(),
             'callback' => $this->webApplication->getAppReturnPage(),
-            'appName' => $this->webApplication->getDisplayName()
+            'appName' => $this->webApplication->getDisplayName(),
+            'currency' => $this->webApplication->getPaymentCurrency()
         ]);
 
         $this->requestUrl = $this->requestBuilder->buildRequestUrl();

@@ -199,6 +199,12 @@ class Payleven {
         return $this->requestUrl;
     }
 
+    /**
+     * Validate the response returned by the API
+     * 0 = invalid, 1 = valid
+     *
+     * @return bool
+     */
     public function validateResponse() {
 
         if(empty($_REQUEST['result'])) {

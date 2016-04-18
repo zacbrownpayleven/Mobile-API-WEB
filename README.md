@@ -39,7 +39,6 @@ This SDK is easily installable via `composer`. If your project does not use comp
 Use your application's API key, bundleID (domain), and return request configuration to instantiate the Payleven object class.
 
 ```php
-
     $app = new Payleven\Payleven([
         'api_key' => '{your api key}',
         'bundle_id' => '{your bundle/domain}',
@@ -62,7 +61,7 @@ Start a payment in the Payleven App. This is assuming you've initialized the Pay
 
 ```
 
-The startPayment method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
+The `startPayment` method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
 
 ```php
     $url = $app->startPayment('...');
@@ -82,7 +81,7 @@ Start a refund in the Payleven App. This is assuming you've initialized the Payl
 
 ```
 
-The startRefund method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
+The `startRefund` method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
 
 ```php
     $url = $app->startRefund('...');
@@ -101,7 +100,7 @@ Start the Transaction Details for a specific order in the Payleven App. This is 
 
 ```
 
-The startPayment method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
+The `startTransactionDetails` method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
 
 ```php
     $url = $app->startTransactionDetails('...');
@@ -120,7 +119,7 @@ Start the payment history interface in the Payleven App. This is assuming you've
 
 ```
 
-The startPayment method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
+The `startPaymentHistory` method exposes the generated url as returned in a `string`. If you'd like to handle the redirect on your own, assign that to a variable:
 
 ```php
     $url = $app->startPaymentHistory();
@@ -142,7 +141,7 @@ This method returns a `boolean` value fo `true` or `false`, depedning upon the v
 
  ##### Accessing the Response Data
 
- After the mobile API returns it's response to your return endpoint, you can simply access the information via the `$_REQUEST` object. Here is a list of all respone fields provided by the Payleven Mobile API:
+ After the mobile API returns it's response to your return endpoint, you can simply access the information via the `$_REQUEST` object. Here is a list of all response fields provided by the Payleven Mobile API:
  ```php
     $responseBody = array(
         'result' => $_REQUEST['result'],
@@ -177,4 +176,4 @@ This method returns a `boolean` value fo `true` or `false`, depedning upon the v
 
  ```
 
- Then, you can simply access the data form the `$responseBody` array. You can, of course, interact wihtt he `$_REQUEST` object in any way that suits your application best.
+ Then, you can simply access the data form the `$responseBody` array. You can, of course, interact with the `$_REQUEST` object in any way that suits your application best.

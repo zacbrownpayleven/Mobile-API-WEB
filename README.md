@@ -20,18 +20,19 @@ The PaylevenAppApi makes possible for app developers to open the payleven applic
 
 ### Installation
 
-This SDK is easily installable via `composer`. If your project does not use composer, download the source from this repo, and include the `autoloader.php` file in your application.
+This SDK is easily installable via `composer`. If your project does not use composer, download the source from this repo, and include the `autoload.php` file in your application.
+
+`composer require payleven\mobileweb-phpsdk`
 
 #### Usage
 
 ##### Instantiate the payleven Object
 
-Use your application's API key, bundleID (domain), and return request configuration to instantiate the Payleven object class.
+Use your application's `api_key` and return request configuration to instantiate the Payleven object class.
 
 ```php
     $app = new Payleven\Payleven([
         'api_key' => '{your api key}',
-        'bundle_id' => '{your bundle/domain}',
         'return_domain' => '{your return domain}',
         'return_page' => '{your return page}',
         'display_name' => '{display name}',

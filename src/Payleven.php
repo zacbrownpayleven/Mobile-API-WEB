@@ -52,10 +52,6 @@ class Payleven {
             throw new PaylevenMissingConfigException('The API key is required for all library interaction');
         }
 
-        if(empty($config['bundle_id'])) {
-            throw new PaylevenMissingConfigException('The application BundleID is required for all library interaction');
-        }
-
         if(empty($config['return_domain'])) {
             throw new PaylevenMissingConfigException('The return domain is required for all library indertaction');
         }
@@ -74,7 +70,6 @@ class Payleven {
 
         $this->webApplication = new PaylevenWebApplication(
             $config['api_key'],
-            $config['bundle_id'],
             $config['return_scheme'],
             $config['return_domain'],
             $config['return_page'],

@@ -20,7 +20,7 @@ The PaylevenAppApi makes possible for app developers to open the payleven applic
 
 ### Installation
 
-Simply download the source form this repository, and include the `autoload.php` file in your PHP script.
+Simply download the source from this repository, and include the `autoload.php` file in your PHP script.
 
 ```php
     require 'autoload.php'
@@ -122,7 +122,7 @@ Otherwise, you can use the built in `redirect` method to let us handle it.
 
 ##### Validate Response
 
-HMAC calculation is used to verify that the response actually came from the intended sender. In order to ensure the data you are receiving to your `return` endpoint, you should always validate the response. This also assumes you've initialized the Payleven object to the `$app` variable.
+HMAC calculation is used to verify that the response actually comes from the intended sender. In order to ensure the data you are receiving to your `return` endpoint, you should always validate the response. This also assumes you've initialized the Payleven object to the `$app` variable.
 
 ```php
     $valid = $app->validateResponse();
@@ -134,7 +134,7 @@ This method returns a `boolean` value for `true` or `false`, depending upon the 
 
  ##### Accessing the Response Data
 
- After the mobile API returns it's response to your return endpoint, you can simply access the information via the `$_REQUEST` object. Here is a list of all response fields provided by the Payleven Mobile API:
+ After the mobile API returns its response to your return endpoint, you can simply access the information via the `$_REQUEST` object. Here is a list of all response fields provided by the Point Pay API:
  ```php
     $responseBody = array(
         'result' => $_REQUEST['result'],

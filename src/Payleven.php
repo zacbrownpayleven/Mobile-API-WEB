@@ -24,21 +24,21 @@ class Payleven {
     /**
      * The current web application entity
      *
-     * @var
+     * @var PaylevenWebApplication
      */
     private $webApplication;
 
     /**
      * The Payleven request builder object
      *
-     * @var
+     * @var PaylevenRequestBuilder
      */
     private $requestBuilder;
 
     /**
      * The current request url
      *
-     * @var
+     * @var string
      */
     private $requestUrl;
 
@@ -265,7 +265,7 @@ class Payleven {
     /**
      * Return the current web application
      *
-     * @return mixed
+     * @return PaylevenWebApplication
      */
     public function getWebApplication() {
         return $this->webApplication;
@@ -274,7 +274,7 @@ class Payleven {
     /**
      * Return the url for the current request
      *
-     * @return mixed
+     * @return string
      */
     public function getRequestUrl() {
         return $this->requestUrl;

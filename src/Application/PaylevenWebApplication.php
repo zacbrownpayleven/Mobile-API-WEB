@@ -14,52 +14,52 @@ class PaylevenWebApplication {
     /**
      * The API key for the current application
      *
-     * @var
+     * @var string
      */
     private $apiKey;
 
     /**
      * The URL scheme for the current application
      *
-     * @var
+     * @var string
      */
     private $returnUrlScheme;
 
     /**
      * The app return url for the current application
      *
-     * @var
+     * @var string
      */
     private $returnDomain;
 
     /**
      * The app return page for the current application
      *
-     * @var
+     * @var string
      */
     private $returnPage;
 
     /**
      * The display name for the current application
      *
-     * @var
+     * @var string
      */
     private $displayName;
 
     /**
      * The currency for the current application
      *
-     * @var
+     * @var string
      */
     private $paymentCurrency;
 
     /**
      * PaylevenWebAppication constructor.
-     * @param $apiKey
-     * @param $returnUrlScheme
-     * @param $returnDomain
-     * @param $returnPage
-     * @param $displayName
+     * @param string $apiKey
+     * @param string $returnUrlScheme
+     * @param string $returnDomain
+     * @param string $returnPage
+     * @param string $displayName
      */
     public function __construct($apiKey, $returnUrlScheme, $returnDomain, $returnPage, $displayName, $paymentCurrency) {
 
@@ -72,9 +72,9 @@ class PaylevenWebApplication {
     }
 
     /**
-     * Get the application API key
+     * Get the application api key
      *
-     * @return mixed
+     * @return string
      */
     public function getApiKey() {
         return $this->apiKey;
@@ -83,7 +83,7 @@ class PaylevenWebApplication {
     /**
      * Get the application URL scheme
      *
-     * @return mixed
+     * @return string
      */
     public function getReturnUrlScheme() {
         return $this->returnUrlScheme;
@@ -92,7 +92,7 @@ class PaylevenWebApplication {
     /**
      * Get the application return domain
      *
-     * @return mixed
+     * @return string
      */
     public function getReturnDomain() {
         return $this->returnDomain;
@@ -101,7 +101,7 @@ class PaylevenWebApplication {
     /**
      * Get the application Return Page
      *
-     * @return mixed
+     * @return string
      */
     public function getAppReturnPage() {
         return $this->returnPage;
@@ -110,7 +110,7 @@ class PaylevenWebApplication {
     /**
      * Get the application display name
      *
-     * @return mixed
+     * @return string
      */
     public function getDisplayName() {
         return $this->displayName;
@@ -119,7 +119,7 @@ class PaylevenWebApplication {
     /**
      * Get the payment currency
      *
-     * @return mixed
+     * @return string
      */
     public function getPaymentCurrency() {
         return $this->paymentCurrency;

@@ -31,7 +31,7 @@ class PaylevenRequestBuilder {
     /**
      * The hmac calculation for the request
      *
-     * @var
+     * @var string
      */
     private $calculatedHmac;
 
@@ -45,14 +45,14 @@ class PaylevenRequestBuilder {
     /**
      * The api key to be used for hmac calculation
      *
-     * @var
+     * @var string
      */
     private $apiKey;
 
     /**
      * Initiate the request builder for request
      *
-     * @param $action
+     * @param string $action
      * @param array $queryParams
      */
     public function initiateRequest($action, array $queryParams = []) {

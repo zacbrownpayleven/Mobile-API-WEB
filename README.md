@@ -20,9 +20,11 @@ The PaylevenAppApi makes possible for app developers to open the payleven applic
 
 ### Installation
 
-This SDK is easily installable via `composer`. If your project does not use composer, download the source from this repo, and include the `autoload.php` file in your application.
+Simply download the source form this repository, and include the `autoload.php` file in your PHP script.
 
-`composer require payleven\mobileweb-phpsdk`
+```php
+    require 'autoload.php'
+```
 
 #### Usage
 
@@ -120,7 +122,7 @@ Otherwise, you can use the built in `redirect` method to let us handle it.
 
 ##### Validate Response
 
-HMAC calculation is used to verify that the response actually came from the intended sender. In order to ensure the data you are receiving to your `retrun` endpoint, you should always validate the response. This also assumes you've initialized the Payleven object to the `$app` variable.
+HMAC calculation is used to verify that the response actually came from the intended sender. In order to ensure the data you are receiving to your `return` endpoint, you should always validate the response. This also assumes you've initialized the Payleven object to the `$app` variable.
 
 ```php
     $valid = $app->validateResponse();
@@ -128,7 +130,7 @@ HMAC calculation is used to verify that the response actually came from the inte
 
 ```
 
-This method returns a `boolean` value fo `true` or `false`, depedning upon the validity of the response.
+This method returns a `boolean` value for `true` or `false`, depending upon the validity of the response.
 
  ##### Accessing the Response Data
 

@@ -5,7 +5,6 @@ php:
 before_script:
   - mkdir -p build/logs
   - "mkdir -p ~/.composer"
-  - cp .travis.composer.config.json ~/.composer/config.json
   - composer require satooshi/php-coveralls:dev-master
   - composer install --dev --no-interaction
 

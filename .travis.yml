@@ -3,7 +3,7 @@ php:
   - 5.6
 
 before_script:
-  - mkdir -p build/logs
+  - mkdir -p app/build/logs
   - "mkdir -p ~/.composer"
   - composer require satooshi/php-coveralls:dev-master
   - composer install --dev --no-interaction

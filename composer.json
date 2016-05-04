@@ -2,7 +2,7 @@
   "name": "payleven/php-mobileweb-sdk",
   "type": "library",
   "description": "The official PHP SDK for the Payleven Mobile APIs",
-  "keywords": ["libaray", "payleven", "api", "sdk", "payleven mobile"],
+  "keywords": ["library", "payleven", "api", "sdk", "payleven mobile"],
   "authors": [
     {
       "name": "Zac Brown",

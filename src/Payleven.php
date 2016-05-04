@@ -48,6 +48,10 @@ class Payleven {
      */
     public function __construct(array $config = []) {
 
+        if(empty($config)) {
+            throw new PaylevenMissingConfigException('Instantiation requires configurable options.');
+        }
+
         if(empty($config['api_key'])) {
             throw new PaylevenMissingConfigException('The API key is required for all library interaction');
         }
@@ -153,7 +157,7 @@ class Payleven {
      * Start transaction details in the Payleven app
      *
      * @param $orderId
-     * @return mixed
+     * @return string
      * @throws PaylevenMissingConfigException
      */
     public function startTransactionDetails($orderId) {
@@ -258,7 +262,6 @@ class Payleven {
      * Redirect to the current request url
      */
     public function redirect() {
-        echo $this->requestUrl;
         header('Location: '.$this->requestUrl);
     }
 

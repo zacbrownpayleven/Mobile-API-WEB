@@ -9,7 +9,7 @@ before_script:
   - composer install --dev --no-interaction
 
 script:
-  - phpunit -c app/phpunit.xml.dist
+  - phpunit tests --bootstrap vendor/autoload.php -c phpunit.xml.dist
 
 after_script:
  - php vendor/satooshi/php-coveralls/bin/coveralls -v
